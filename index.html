@@ -1,111 +1,78 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0f8a4a">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GRIYA INSAN MADANI</title>
 
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0f8a4a">
+
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family: Arial, Helvetica, sans-serif;
-}
 
 body{
-background:#f5f5f5;
+font-family:Arial, sans-serif;
+margin:0;
+padding:0;
 }
 
 header{
-background: linear-gradient(90deg,#0f8a4a,#d32f2f);
+background:#0f8a4a;
 color:white;
 padding:20px;
 text-align:center;
 }
 
 .logo{
-width:120px;
-margin-bottom:10px;
-}
-
-nav{
-background:#0f8a4a;
-padding:15px;
-text-align:center;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-margin:0 15px;
-font-weight:bold;
-}
-
-.hero{
-padding:60px 20px;
-text-align:center;
-background:white;
+width:80px;
 }
 
 .container{
-max-width:1000px;
-margin:auto;
-padding:40px 20px;
+padding:20px;
 }
 
 .card{
-background:white;
-padding:20px;
-margin:15px 0;
+border:1px solid #ddd;
+padding:15px;
 border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
+margin-bottom:20px;
 }
 
 .btn{
 background:#0f8a4a;
 color:white;
-padding:12px 20px;
-text-decoration:none;
-border-radius:5px;
-display:inline-block;
-margin-top:10px;
+padding:10px 15px;
 border:none;
+border-radius:5px;
 cursor:pointer;
 }
 
-.btn:hover{
-background:#d32f2f;
-}
-
-input,textarea,select{
-width:100%;
-padding:10px;
-margin-bottom:10px;
-border-radius:5px;
-border:1px solid #ccc;
-}
-
-footer{
-background:#0f8a4a;
-color:white;
-text-align:center;
-padding:20px;
-}
-
-.whatsapp{
+/* tombol whatsapp */
+.wa-float{
 position:fixed;
 bottom:20px;
 right:20px;
 background:#25D366;
 color:white;
-padding:15px;
-border-radius:50%;
+padding:15px 18px;
+border-radius:50px;
 text-decoration:none;
-font-size:22px;
+font-weight:bold;
+z-index:999;
+}
+
+/* tombol install */
+.install-btn{
+position:fixed;
+bottom:20px;
+left:20px;
+background:#0f8a4a;
+color:white;
+padding:15px 18px;
+border-radius:50px;
+cursor:pointer;
+display:none;
+z-index:999;
 }
 
 </style>
@@ -120,486 +87,74 @@ font-size:22px;
 <p>Belajar cepat, mudah, dan murah</p>
 </header>
 
-<nav>
-<a href="#">Beranda</a>
-<a href="#program">Program</a>
-<a href="#biaya">Biaya</a>
-<a href="#jadwal">Jadwal</a>
-<a href="#daftar">Daftar</a>
-<a href="#kontak">Kontak</a>
-</nav>
-
-<section class="hero">
-<h2>Kursus Komputer Profesional</h2>
-<p>Microsoft Office & Google Workspace</p>
-<a href="#daftar" class="btn">Daftar Sekarang</a>
-</section>
-
-<section class="container" id="program">
-<h2>Program Kursus</h2>
+<div class="container">
 
 <div class="card">
-<h3>Microsoft Office</h3>
-<p>Microsoft Word</p>
-<p>Microsoft Excel</p>
-<p>Microsoft PowerPoint</p>
-</div>
-
-<div class="card">
-<h3>Google Workspace</h3>
-<p>Google Docs</p>
-<p>Google Sheets</p>
-<p>Google Slides</p>
-<p>Google Drive</p>
-</div>
-
-</section>
-
-<section class="container" id="biaya">
-<h2>Biaya Kursus</h2>
-
-<div class="card">
-<h3>Paket Reguler</h3>
-<p>Durasi: 1 Bulan</p>
-<p>Biaya: Rp 350.000</p>
-</div>
-
-<div class="card">
-<h3>Paket Privat</h3>
-<p>Durasi: 1 Bulan</p>
-<p>Biaya: Rp 500.000</p>
-</div>
-
-</section>
-
-<section class="container" id="jadwal">
 <h2>Jadwal Kursus</h2>
-
-<div class="card">
-<h3>Hari</h3>
 <p>Senin, Selasa, Rabu</p>
-
-<h3>Siang</h3>
-<p>14.00 - 16.00 WIB</p>
-
-<h3>Malam</h3>
-<p>19.30 - 21.30 WIB</p>
-
+<p>Siang: 14.00 - 16.00 WIB</p>
+<p>Malam: 19.30 - 21.30 WIB</p>
 </div>
-
-</section>
-
-<section class="container" id="daftar">
-<h2>Form Pendaftaran</h2>
-
-<form onsubmit="kirimWA(); return false;">
-
-<input type="text" id="nama" placeholder="Nama Lengkap" required>
-
-<input type="text" id="alamat" placeholder="Alamat" required>
-
-<select id="program">
-<option>Microsoft Office</option>
-<option>Google Workspace</option>
-</select>
-
-<select id="paket">
-<option>Paket Reguler</option>
-<option>Paket Privat</option>
-</select>
-
-<button class="btn">Daftar Sekarang</button>
-
-</form>
-
-</section>
-
-<section class="container">
-<h2>Sertifikat</h2>
 
 <div class="card">
-<p>Peserta yang telah menyelesaikan kursus akan mendapatkan Sertifikat Resmi dari GRIYA INSAN MADANI.</p>
-</div>
-
-</section>
-
-<section class="container" id="kontak">
-<h2>Kontak</h2>
-
-<div class="card">
-<p>GRIYA INSAN MADANI</p>
-<p>RT 05 RW 01 Desa Mumpa</p>
-<p>Kec. Tempuling</p>
-<p>WhatsApp: 08117677050</p>
-</div>
-
-</section>
-
-<footer>
-<p>© 2026 GRIYA INSAN MADANI</p>
-</footer>
-
-<a href="https://wa.me/628117677050" class="whatsapp">WA</a>
-
-<script>
-function kirimWA(){
-
-var nama=document.getElementById('nama').value;
-var alamat=document.getElementById('alamat').value;
-var program=document.getElementById('program').value;
-var paket=document.getElementById('paket').value;
-
-var pesan="Pendaftaran Kursus GRIYA INSAN MADANI%0A"+
-"Nama : "+nama+"%0A"+
-"Alamat : "+alamat+"%0A"+
-"Program : "+program+"%0A"+
-"Paket : "+paket;
-
-window.open("https://wa.me/628117677050?text="+pesan);
-
-}
-function loginAdmin(){
-
-var user=document.getElementById('username').value;
-var pass=document.getElementById('password').value;
-
-if(user=="admin" && pass=="admin123"){
-
-document.getElementById('adminPanel').style.display="block";
-alert("Login Berhasil");
-
-}else{
-alert("Username atau Password Salah");
-}
-
-}
-
-</script>
-
-
-
-<section class="container">
-<h2>Login Admin</h2>
-<div class="card">
-<input type="text" id="username" placeholder="Username">
-<input type="password" id="password" placeholder="Password">
-<button class="btn" onclick="loginAdmin()">Login</button>
-</div>
-
-<div id="adminPanel" style="display:none">
-
-<h2>Admin Peserta</h2>
-
-<div class="card">
-<input type="text" id="adminNama" placeholder="Nama Peserta">
-<input type="text" id="adminProgram" placeholder="Program">
-<button class="btn" onclick="tambahPeserta()">Tambah Peserta</button>
-
-<ul id="daftarPeserta"></ul>
-</div>
-
-</section>
-
-<section class="container">
-<h2>Cetak Sertifikat</h2>
-
-<div class="card">
-<input type="text" id="sertifikatNama" placeholder="Nama Peserta">
-<button class="btn" onclick="cetakSertifikat()">Cetak Sertifikat</button>
-</div>
-
-</section>
-
-<script>
-function tambahPeserta(){
-
-var nama=document.getElementById('adminNama').value;
-var program=document.getElementById('adminProgram').value;
-
-var data={nama:nama,program:program};
-
-var peserta=JSON.parse(localStorage.getItem('peserta'))||[];
-peserta.push(data);
-localStorage.setItem('peserta',JSON.stringify(peserta));
-
-loadPeserta();
-
-}
-
-function loadPeserta(){
-
-var peserta=JSON.parse(localStorage.getItem('peserta'))||[];
-
-var list=document.getElementById("daftarPeserta");
-list.innerHTML="";
-
-peserta.forEach(function(p){
-var li=document.createElement("li");
-li.innerHTML=p.nama+" - "+p.program;
-list.appendChild(li);
-});
-
-}
-
-window.onload=loadPeserta;
-
-function cetakSertifikat(){
-
-var nama=document.getElementById('sertifikatNama').value;
-
-var isi="
-
-SERTIFIKAT
-
-Diberikan Kepada:
-
-"+nama+"
-
-Telah Menyelesaikan Kursus
-GRIYA INSAN MADANI";
-
-var win=window.open();
-win.document.write("<pre>"+isi+"</pre>");
-win.print();
-
-}
-
-</script>
-
-
-
-<section class="container" id="dashboard">
-<h2>Dashboard Admin</h2>
-<div class="card">
-<p>Total Peserta: <span id="totalPeserta">0</span></p>
-</div>
-</section>
-
-<section class="container">
-<h2>Absensi Peserta</h2>
-<div class="card">
-<input type="text" id="absenNama" placeholder="Nama Peserta">
-<select id="statusAbsen">
-<option>Hadir</option>
-<option>Izin</option>
-<option>Tidak Hadir</option>
-</select>
-<button class="btn" onclick="tambahAbsen()">Simpan Absensi</button>
-
-<ul id="listAbsen"></ul>
-
-</div>
-</section>
-
-<script>
-
-function updateDashboard(){
-var peserta=JSON.parse(localStorage.getItem('peserta'))||[];
-document.getElementById('totalPeserta').innerText=peserta.length;
-}
-
-function tambahAbsen(){
-
-var nama=document.getElementById('absenNama').value;
-var status=document.getElementById('statusAbsen').value;
-
-var data={nama:nama,status:status};
-
-var absen=JSON.parse(localStorage.getItem('absen'))||[];
-absen.push(data);
-localStorage.setItem('absen',JSON.stringify(absen));
-
-loadAbsen();
-
-}
-
-function loadAbsen(){
-
-var absen=JSON.parse(localStorage.getItem('absen'))||[];
-var list=document.getElementById('listAbsen');
-list.innerHTML="";
-
-absen.forEach(function(a){
-var li=document.createElement('li');
-li.innerHTML=a.nama+" - "+a.status;
-list.appendChild(li);
-});
-
-}
-
-window.onload=function(){
-loadPeserta();
-loadAbsen();
-updateDashboard();
-}
-
-</script>
-
-
-
-<section class="container">
-<h2>Cetak Kartu Peserta</h2>
-<div class="card">
-<input type="text" id="kartuNama" placeholder="Nama Peserta">
-<input type="text" id="kartuProgram" placeholder="Program">
-<button class="btn" onclick="cetakKartu()">Cetak Kartu</button>
-</div>
-</section>
-
-<section class="container">
-<h2>Sertifikat Profesional</h2>
-<div class="card">
-<input type="text" id="sertifikatNama2" placeholder="Nama Peserta">
-<button class="btn" onclick="sertifikatPro()">Cetak Sertifikat Profesional</button>
-</div>
-</section>
-
-<script>
-
-function cetakKartu(){
-
-var nama=document.getElementById('kartuNama').value;
-var program=document.getElementById('kartuProgram').value;
-
-var win=window.open();
-
-win.document.write(`
-<h2 style="text-align:center">KARTU PESERTA</h2>
-<hr>
-<p>Nama : ${nama}</p>
-<p>Program : ${program}</p>
-<p>Lembaga : GRIYA INSAN MADANI</p>
-`);
-
-win.print();
-
-}
-
-function sertifikatPro(){
-
-var nama=document.getElementById('sertifikatNama2').value;
-
-var nomor="GIM-"+Math.floor(Math.random()*10000);
-
-var tanggal=new Date().toLocaleDateString('id-ID');
-
-var win=window.open();
-
-win.document.write(`
-<div style="text-align:center;padding:40px;border:8px solid #0f8a4a">
-<img src="logo.png" width="100">
-<h1>SERTIFIKAT</h1>
-<p>Nomor: ${nomor}</p>
-<p>Diberikan Kepada</p>
-<h2>${nama}</h2>
-<p>Telah menyelesaikan kursus di</p>
-<h3>GRIYA INSAN MADANI</h3>
-<p>Belajar cepat, mudah, dan murah</p>
-<br>
-<p>Tanggal: ${tanggal}</p>
-<br>
-<p>Direktur</p>
+<h2>Daftar Peserta</h2>
+<input type="text" id="nama" placeholder="Nama Peserta">
 <br><br>
-<p>GRIYA INSAN MADANI</p>
+<button class="btn" onclick="tambahPeserta()">Tambah</button>
+<ul id="list"></ul>
 </div>
-`);
 
-win.print();
-
-}</h2>
-<p>Telah menyelesaikan kursus di</p>
-<h3>GRIYA INSAN MADANI</h3>
-<br>
-<p>Belajar cepat, mudah, dan murah</p>
 </div>
-`);
 
-win.print();
+<!-- tombol whatsapp -->
+<a href="https://wa.me/628117677050" class="wa-float">
+WhatsApp
+</a>
 
-}
-
-</script>
-
-
-
-<section class="container">
-<h2>Upload Foto Peserta</h2>
-<div class="card">
-<input type="file" id="fotoPeserta">
-<button class="btn" onclick="uploadFoto()">Upload Foto</button>
-<div id="previewFoto"></div>
-</div>
-</section>
-
-<section class="container">
-<h2>QR Code Sertifikat</h2>
-<div class="card">
-<input type="text" id="qrNama" placeholder="Nama Peserta">
-<button class="btn" onclick="buatQR()">Buat QR Code</button>
-<div id="qrcode"></div>
-</div>
-</section>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<!-- tombol install -->
+<button id="installBtn" class="install-btn">
+Install App
+</button>
 
 <script>
 
-function uploadFoto(){
-
-var file=document.getElementById('fotoPeserta').files[0];
-var reader=new FileReader();
-
-reader.onload=function(e){
-
-var img=document.createElement('img');
-img.src=e.target.result;
-img.style.width="150px";
-
-var div=document.getElementById('previewFoto');
-div.innerHTML="";
-div.appendChild(img);
-
+function tambahPeserta(){
+var nama=document.getElementById('nama').value;
+var li=document.createElement('li');
+li.textContent=nama;
+document.getElementById('list').appendChild(li);
 }
 
-reader.readAsDataURL(file);
-
-}
-
-function buatQR(){
-
-var nama=document.getElementById('qrNama').value;
-
-var div=document.getElementById('qrcode');
-div.innerHTML="";
-
-new QRCode(div,{
-text:"Sertifikat GRIYA INSAN MADANI - "+nama,
-width:150,
-height:150
-});
-
-}
-
-</script>
-
-
-<button id="installBtn" class="btn" style="position:fixed;bottom:20px;right:20px;display:none">Install App</button>
-
-<script>
 let deferredPrompt;
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  document.getElementById('installBtn').style.display = 'block';
+
+window.addEventListener('beforeinstallprompt', (e)=>{
+
+e.preventDefault();
+
+deferredPrompt=e;
+
+document.getElementById('installBtn').style.display='block';
+
 });
 
-document.getElementById('installBtn').addEventListener('click', () => {
-  deferredPrompt.prompt();
+
+document.getElementById('installBtn').addEventListener('click',()=>{
+
+if(deferredPrompt){
+
+deferredPrompt.prompt();
+
+}
+
 });
+
 
 if('serviceWorker' in navigator){
+
 navigator.serviceWorker.register('sw.js');
+
 }
+
 </script>
 
 </body>
