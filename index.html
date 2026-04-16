@@ -6,21 +6,6 @@
 <title>GRIYA INSAN MADANI</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-.photo{
-width:120px;
-border-radius:10px;
-margin-top:10px;
-}
-
-.print-btn{
-background:#d32f2f;
-color:white;
-padding:10px;
-border:none;
-border-radius:5px;
-cursor:pointer;
-margin-top:5px;
-}
 
 <style>
 *{
@@ -29,178 +14,7 @@ padding:0;
 box-sizing:border-box;
 font-family: Arial, Helvetica, sans-serif;
 }
-<section class="container">
-<h2>Data Peserta</h2>
 
-<div class="card">
-
-<input type="text" id="pesertaNama" placeholder="Nama Peserta">
-
-<input type="text" id="pesertaProgram" placeholder="Program">
-
-<label>Upload Foto Peserta</label>
-<input type="file" id="fotoPeserta">
-
-<label>Upload Bukti Transfer</label>
-<input type="file" id="buktiTransfer">
-
-<button class="btn" onclick="simpanPeserta()">Simpan Peserta</button>
-
-<div id="previewPeserta"></div>
-
-</div>
-
-</section>
-
-
-<section class="container">
-<h2>Cetak Kartu Peserta</h2>
-
-<div class="card">
-
-<input type="text" id="cetakNama" placeholder="Nama Peserta">
-
-<button class="btn" onclick="cetakKartu()">Cetak Kartu</button>
-
-</div>
-
-</section>
-
-
-<section class="container">
-<h2>Cetak Sertifikat</h2>
-
-<div class="card">
-
-<input type="text" id="sertifikatNama" placeholder="Nama Peserta">
-
-<button class="btn" onclick="cetakSertifikat()">Cetak Sertifikat</button>
-
-</div>
-
-</section>
-<script>
-
-function simpanPeserta(){
-
-var nama=document.getElementById('pesertaNama').value;
-var program=document.getElementById('pesertaProgram').value;
-
-var foto=document.getElementById('fotoPeserta').files[0];
-var bukti=document.getElementById('buktiTransfer').files[0];
-
-var reader1=new FileReader();
-var reader2=new FileReader();
-
-reader1.onload=function(e){
-
-var fotoData=e.target.result;
-
-reader2.onload=function(e2){
-
-var buktiData=e2.target.result;
-
-var data={
-nama:nama,
-program:program,
-foto:fotoData,
-bukti:buktiData
-};
-
-var peserta=JSON.parse(localStorage.getItem('dataPeserta'))||[];
-
-peserta.push(data);
-
-localStorage.setItem('dataPeserta',JSON.stringify(peserta));
-
-tampilPeserta();
-
-}
-
-reader2.readAsDataURL(bukti);
-
-}
-
-reader1.readAsDataURL(foto);
-
-}
-
-function tampilPeserta(){
-
-var peserta=JSON.parse(localStorage.getItem('dataPeserta'))||[];
-
-var html="";
-
-peserta.forEach(function(p){
-
-html+=`
-<div class="card">
-<h3>${p.nama}</h3>
-<p>${p.program}</p>
-
-<img src="${p.foto}" class="photo">
-
-<h4>Bukti Transfer</h4>
-<img src="${p.bukti}" class="photo">
-
-<button class="print-btn" onclick="printKartu('${p.nama}','${p.program}','${p.foto}')">
-Cetak Kartu
-</button>
-
-<button class="print-btn" onclick="printSertifikat('${p.nama}')">
-Cetak Sertifikat
-</button>
-
-</div>
-`;
-
-});
-
-document.getElementById("previewPeserta").innerHTML=html;
-
-}
-
-function printKartu(nama,program,foto){
-
-var win=window.open();
-
-win.document.write(`
-<div style="text-align:center;padding:20px;border:2px solid green">
-<h2>KARTU PESERTA</h2>
-<img src="${foto}" width="120">
-<p>Nama : ${nama}</p>
-<p>Program : ${program}</p>
-<p>GRIYA INSAN MADANI</p>
-</div>
-`);
-
-win.print();
-
-}
-
-function printSertifikat(nama){
-
-var win=window.open();
-
-win.document.write(`
-<div style="text-align:center;padding:40px;border:5px solid green">
-<h1>SERTIFIKAT</h1>
-<p>Diberikan Kepada</p>
-<h2>${nama}</h2>
-<p>Telah Menyelesaikan Kursus</p>
-<h3>GRIYA INSAN MADANI</h3>
-</div>
-`);
-
-win.print();
-
-}
-
-window.onload=function(){
-tampilPeserta();
-}
-
-</script>
 body{
 background:#f5f5f5;
 }
@@ -281,8 +95,6 @@ text-align:center;
 padding:20px;
 }
 
-/* WhatsApp Button */
-
 .whatsapp{
 position:fixed;
 bottom:20px;
@@ -308,8 +120,6 @@ z-index:999;
 100%{transform:scale(1)}
 }
 
-/* Install Button */
-
 .install-app{
 position:fixed;
 top:20px;
@@ -321,6 +131,12 @@ border-radius:30px;
 cursor:pointer;
 display:none;
 z-index:999;
+}
+
+.photo{
+width:120px;
+margin-top:10px;
+border-radius:10px;
 }
 
 </style>
@@ -374,45 +190,15 @@ Install App
 
 </section>
 
-<section class="container" id="biaya">
-<h2>Biaya Kursus</h2>
-
-<div class="card">
-<h3>Paket Reguler</h3>
-<p>Durasi: 1-3 Bulan</p>
-<p>Biaya: Rp 500.000</p>
-</div>
-
-<div class="card">
-<h3>Paket Privat</h3>
-<p>Durasi: 1-2 Bulan</p>
-<p>Biaya: Rp 500.000</p>
-</div>
-
-</section>
-
-<section class="container" id="jadwal">
-<h2>Jadwal Kursus</h2>
-
-<div class="card">
-<p>Senin, Selasa, Rabu</p>
-<p>Siang 14.00 - 16.00 WIB</p>
-<p>Malam 19.30 - 21.30 WIB</p>
-</div>
-
-</section>
-
 <section class="container" id="daftar">
 <h2>Form Pendaftaran</h2>
 
-<form onsubmit="kirimWA(); return false;">
-
-<input type="text" id="nama" placeholder="Nama Lengkap" required>
-<input type="text" id="alamat" placeholder="Alamat" required>
+<input type="text" id="nama" placeholder="Nama Lengkap">
+<input type="text" id="alamat" placeholder="Alamat">
 
 <select id="programForm">
-<option value="Microsoft Office">Microsoft Office</option>
-<option value="Google Workspace">Google Workspace</option>
+<option>Microsoft Office</option>
+<option>Google Workspace</option>
 </select>
 
 <select id="paket">
@@ -420,22 +206,19 @@ Install App
 <option>Paket Privat</option>
 </select>
 
-<button class="btn">Daftar Sekarang</button>
+<label>Upload Foto Peserta</label>
+<input type="file" id="foto">
 
-</form>
+<label>Upload Bukti Transfer</label>
+<input type="file" id="bukti">
+
+<button class="btn" onclick="simpan()">Daftar Sekarang</button>
 
 </section>
 
-<section class="container" id="kontak">
-<h2>Kontak</h2>
-
-<div class="card">
-<p>GRIYA INSAN MADANI</p>
-<p>RT 05 RW 01 Desa Mumpa</p>
-<p>Kec. Tempuling</p>
-<p>WhatsApp: 081266277447</p>
-</div>
-
+<section class="container">
+<h2>Data Peserta</h2>
+<div id="dataPeserta"></div>
 </section>
 
 <footer>
@@ -448,21 +231,146 @@ Install App
 
 <script>
 
-function kirimWA(){
+function simpan(){
 
 var nama=document.getElementById('nama').value;
 var alamat=document.getElementById('alamat').value;
 var program=document.getElementById('programForm').value;
 var paket=document.getElementById('paket').value;
 
-var pesan="Pendaftaran Kursus GRIYA INSAN MADANI%0A"+
-"Nama : "+nama+"%0A"+
-"Alamat : "+alamat+"%0A"+
-"Program : "+program+"%0A"+
-"Paket : "+paket;
+var foto=document.getElementById('foto').files[0];
+var bukti=document.getElementById('bukti').files[0];
 
-window.open("https://wa.me/6281266277447?text="+pesan);
+var reader1=new FileReader();
+var reader2=new FileReader();
 
+reader1.onload=function(e){
+
+var fotoData=e.target.result;
+
+reader2.onload=function(e2){
+
+var buktiData=e2.target.result;
+
+var data={
+nama:nama,
+alamat:alamat,
+program:program,
+paket:paket,
+foto:fotoData,
+bukti:buktiData
+};
+
+var peserta=JSON.parse(localStorage.getItem('peserta'))||[];
+
+peserta.push(data);
+
+localStorage.setItem('peserta',JSON.stringify(peserta));
+
+tampil();
+
+}
+
+reader2.readAsDataURL(bukti);
+
+}
+
+reader1.readAsDataURL(foto);
+
+}
+
+function tampil(){
+
+var peserta=JSON.parse(localStorage.getItem('peserta'))||[];
+
+var html="";
+
+peserta.forEach(function(p){
+
+html+=`
+
+<div class="card">
+
+<h3>${p.nama}</h3>
+
+<p>${p.program}</p>
+
+<img src="${p.foto}" class="photo">
+
+<br>
+
+<button class="btn" onclick="cetakKartu('${p.nama}','${p.program}','${p.foto}')">
+Cetak Kartu
+</button>
+
+<button class="btn" onclick="cetakSertifikat('${p.nama}')">
+Cetak Sertifikat
+</button>
+
+</div>
+
+`;
+
+});
+
+document.getElementById('dataPeserta').innerHTML=html;
+
+}
+
+function cetakKartu(nama,program,foto){
+
+var win=window.open();
+
+win.document.write(`
+
+<div style="text-align:center;padding:20px;border:2px solid green">
+
+<h2>KARTU PESERTA</h2>
+
+<img src="${foto}" width="120">
+
+<p>Nama : ${nama}</p>
+
+<p>Program : ${program}</p>
+
+<p>GRIYA INSAN MADANI</p>
+
+</div>
+
+`);
+
+win.print();
+
+}
+
+function cetakSertifikat(nama){
+
+var win=window.open();
+
+win.document.write(`
+
+<div style="text-align:center;padding:40px;border:5px solid green">
+
+<h1>SERTIFIKAT</h1>
+
+<p>Diberikan Kepada</p>
+
+<h2>${nama}</h2>
+
+<p>Telah Mengikuti Kursus</p>
+
+<h3>GRIYA INSAN MADANI</h3>
+
+</div>
+
+`);
+
+win.print();
+
+}
+
+window.onload=function(){
+tampil();
 }
 
 /* Install App */
