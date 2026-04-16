@@ -304,18 +304,19 @@ deferredPrompt.prompt();
 Daftar via WhatsApp
 </button>
 
+}
+
+</script>
+
 <script>
 
 function daftarWA(){
 
-var nama=document.getElementById('nama').value;
-var program=document.getElementById('program').value;
+var pesan = "Halo Admin Griya Insan Madani,%0A"+
+"Saya ingin daftar kursus komputer.%0A%0A"+
+"Mohon informasi lebih lanjut.";
 
-var pesan="Saya ingin daftar kursus%0A"+
-"Nama : "+nama+"%0A"+
-"Program : "+program;
-
-window.open("https://wa.me/6281266277447?text="+pesan);
+window.open("https://wa.me/628117677050?text=" + pesan, "_blank");
 
 }
 
