@@ -190,7 +190,10 @@ animation:waAnim 2s infinite;
 <h2>Form Pendaftaran</h2>
 
 <input type="text" id="nama" placeholder="Nama Lengkap">
+<input type="text" id="tempat" placeholder="Tempat Lahir">
+<input type="date" id="tanggal">
 <input type="text" id="alamat" placeholder="Alamat">
+<input type="text" id="hp" placeholder="Nomor HP">
 
 <select id="program">
 <option>Microsoft Office</option>
@@ -236,7 +239,10 @@ animation:waAnim 2s infinite;
 function simpan(){
 
 var nama=document.getElementById('nama').value;
+var tempat=document.getElementById('tempat').value;
+var tanggal=document.getElementById('tanggal').value;
 var alamat=document.getElementById('alamat').value;
+var hp=document.getElementById('hp').value;
 var program=document.getElementById('program').value;
 
 var foto=document.getElementById('foto').files[0];
@@ -255,7 +261,10 @@ var buktiData=e2.target.result;
 
 var data={
 nama:nama,
+tempat:tempat,
+tanggal:tanggal,
 alamat:alamat,
+hp:hp,
 program:program,
 foto:fotoData,
 bukti:buktiData
@@ -292,6 +301,10 @@ html+=`
 <div class="card">
 
 <h3>${p.nama}</h3>
+
+<p>Tempat/Tgl Lahir : ${p.tempat}, ${p.tanggal}</p>
+<p>Alamat : ${p.alamat}</p>
+<p>No HP : ${p.hp}</p>
 
 <img src="${p.foto}" class="photo">
 
