@@ -203,6 +203,18 @@ outline:none;
 }
 }
 
+.notifikasi{
+position:fixed;
+top:20px;
+right:20px;
+background:#0f8a4a;
+color:white;
+padding:15px 25px;
+border-radius:8px;
+display:none;
+z-index:9999;
+}
+
 </style>
 
 </head>
@@ -350,6 +362,10 @@ outline:none;
 <i class="fab fa-whatsapp"></i>
 </a>
 
+<div id="notifikasi" class="notifikasi">
+Pendaftaran Berhasil ✅
+</div>
+
 <script>
 
 const scriptURL="https://script.google.com/macros/s/AKfycbw46ve5XYGOJKHMrUw-SRU_LdntPe10E8sPAvWaNcyuInJGhSomiCQYan42JqYpF3rGJg/exec";
@@ -375,7 +391,7 @@ headers:{
 }
 })
 .then(res=>{
-alert("Pendaftaran Berhasil");
+tampilNotifikasi();
 })
 .catch(err=>alert("Error"));
 
@@ -434,6 +450,16 @@ function downloadExcel(){
 
 window.open(scriptURL);
 
+}
+
+<script>
+
+function tampilNotifikasi(){
+document.getElementById("notifikasi").style.display="block";
+
+setTimeout(function(){
+document.getElementById("notifikasi").style.display="none";
+},3000);
 }
 
 </script>
