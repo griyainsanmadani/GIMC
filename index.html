@@ -14,8 +14,8 @@ html{
 scroll-behavior:smooth;
 }
 
-section{
-scroll-margin-top:100px;
+#daftar{
+scroll-margin-top:120px;
 }
 
 body{
@@ -46,7 +46,6 @@ position:sticky;
 top:0;
 z-index:999;
 box-shadow:0 2px 5px rgba(0,0,0,0.2);
-transition:0.3s;
 }
 
 nav a{
@@ -54,28 +53,10 @@ color:white;
 margin:0 15px;
 text-decoration:none;
 font-weight:bold;
-position:relative;
-padding:5px 0;
-transition:0.3s;
-}
-
-nav a::after{
-content:'';
-position:absolute;
-width:0;
-height:3px;
-left:0;
-bottom:-5px;
-background:#ffd700;
-transition:0.3s;
 }
 
 nav a:hover{
 color:#ffd700;
-}
-
-nav a:hover::after{
-width:100%;
 }
 
 .container{
@@ -92,6 +73,14 @@ border-radius:10px;
 box-shadow:0 0 10px rgba(0,0,0,0.1);
 }
 
+input, select{
+width:100%;
+padding:10px;
+margin:5px 0;
+border-radius:5px;
+border:1px solid #ccc;
+}
+
 .btn{
 background:#0f8a4a;
 color:white;
@@ -100,19 +89,22 @@ border:none;
 border-radius:8px;
 cursor:pointer;
 transition:0.3s;
-box-shadow:0 4px 8px rgba(0,0,0,0.2);
-font-weight:bold;
 }
 
 .btn:hover{
 background:#d32f2f;
-transform:translateY(-3px);
-box-shadow:0 8px 15px rgba(0,0,0,0.3);
 }
 
-.btn:active{
-transform:translateY(1px);
-box-shadow:0 2px 5px rgba(0,0,0,0.2);
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+}
+
+th,td{
+padding:10px;
+border:1px solid #ddd;
+text-align:left;
 }
 
 .whatsapp{
@@ -130,24 +122,12 @@ justify-content:center;
 font-size:30px;
 text-decoration:none;
 animation:wa 2s infinite;
-box-shadow:0 4px 10px rgba(0,0,0,0.3);
 }
 
 @keyframes wa{
 0%{transform:scale(1)}
 50%{transform:scale(1.1)}
 100%{transform:scale(1)}
-}
-
-<style>
-
-#daftar{
-scroll-margin-top:120px;
-}
-
-section{
-padding-top:120px;
-margin-top:-120px;
 }
 
 </style>
@@ -158,10 +138,9 @@ margin-top:-120px;
 
 <header class="header">
 
-<img src="logo.png" alt="Logo" class="logo">
+<img src="logo.png" class="logo">
 
 <div>
-
 <h1>GRIYA INSAN MADANI COURSE</h1>
 <p>Pusat Kursus Komputer Profesional</p>
 </div>
@@ -172,91 +151,65 @@ margin-top:-120px;
 <a href="#program">Program</a>
 <a href="#daftar">Daftar</a>
 <a href="#admin">Admin</a>
-
 </nav>
 
-<div class="container" id="daftar">
+<section id="program">
 
-<section class="container" id="program">
+<div class="container">
 
 <h2>Program Kursus</h2>
 
 <div class="card">
-
-<h3>Program Kursus</h3>
-
-<p><b>1. Microsoft Office</b></p>
+<h3>Microsoft Office</h3>
 <ul>
-<li>Microsoft Word</li>
-<li>Microsoft Excel</li>
-<li>Microsoft PowerPoint</li>
+<li>Word</li>
+<li>Excel</li>
+<li>PowerPoint</li>
 </ul>
-
-<p><b>2. Google Workspace</b></p>
-<ul>
-<li>Google Docs</li>
-<li>Google Sheets</li>
-<li>Google Slides</li>
-<li>Google Sites</li>
-<li>Google Drive</li>
-</ul>
-
 </div>
 
 <div class="card">
+<h3>Google Workspace</h3>
+<ul>
+<li>Docs</li>
+<li>Sheets</li>
+<li>Slides</li>
+<li>Sites</li>
+<li>Drive</li>
+</ul>
+</div>
 
+<div class="card">
 <h3>Kelas</h3>
-
 <ul>
-<li>Kelas Reguler</li>
-<li>Kelas Privat</li>
+<li>Reguler</li>
+<li>Privat</li>
 </ul>
-
 </div>
 
 <div class="card">
-
-<h3>Jadwal Kursus</h3>
-
-<p><b>Kelas Reguler</b></p>
-<ul>
-<li>Senin - Rabu</li>
-<li>Siang : 14.00 - 15.30 WIB</li>
-<li>Malam : 20.00 - 21.30 WIB</li>
-</ul>
-
-<p><b>Kelas Privat</b></p>
-<ul>
-<li>Sesuai permintaan</li>
-<li>Sesuai kesepakatan</li>
-</ul>
-
+<h3>Jadwal</h3>
+<p>Reguler : Senin - Rabu</p>
+<p>Siang : 14.00 - 15.30 WIB</p>
+<p>Malam : 20.00 - 21.30 WIB</p>
 </div>
 
 <div class="card">
-
-<h3>Biaya Kursus</h3>
-
+<h3>Biaya</h3>
 <ul>
-<li>Reguler : Rp. 500.000</li>
-<li>Privat : Rp. 650.000</li>
+<li>Reguler : Rp 500.000</li>
+<li>Privat : Rp 650.000</li>
 </ul>
+</div>
 
 </div>
 
-<div class="card">
-
-<h3>Fasilitas</h3>
-
-<ul>
-<li>Modul Pembelajaran</li>
-<li>Praktek Langsung</li>
-<li>Sertifikat</li>
-</ul>
-
-</div>
+</section>
 
 <section id="daftar">
+
+<div class="container">
+
 <h2>Form Pendaftaran</h2>
 
 <input type="text" id="nama" placeholder="Nama Lengkap">
@@ -268,17 +221,20 @@ margin-top:-120px;
 <select id="program">
 <option>Microsoft Office</option>
 <option>Google Workspace</option>
-
 </select>
 
-<label>Upload Foto Peserta</label>
-<input type="file" id="foto" accept="image/*">
+<label>Upload Foto</label>
+<input type="file" id="foto">
 
 <button class="btn" onclick="simpan()">Daftar</button>
 
 </div>
 
-<div class="container" id="admin">
+</section>
+
+<section id="admin">
+
+<div class="container">
 
 <h2>Login Admin</h2>
 
@@ -289,32 +245,7 @@ margin-top:-120px;
 
 <div id="adminPanel" style="display:none">
 
-<h2>Dashboard Admin</h2>
-
-<div class="dashboard">
-
-<div class="box">
-<h3>Total Peserta</h3>
-<h2 id="total">0</h2>
-</div>
-
-<div class="box">
-<h3>Microsoft Office</h3>
-<h2 id="office">0</h2>
-</div>
-
-<div class="box">
-<h3>Google Workspace</h3>
-<h2 id="google">0</h2>
-</div>
-
-</div>
-
-<br>
-
-<input type="text" id="cari" placeholder="Cari peserta..." onkeyup="cariData()">
-
-<br><br>
+<h2>Dashboard</h2>
 
 <button class="btn" onclick="downloadExcel()">Download Excel</button>
 
@@ -323,15 +254,13 @@ margin-top:-120px;
 <table>
 
 <thead>
-
 <tr>
 <th>No</th>
 <th>Nama</th>
 <th>Program</th>
-<th>No HP</th>
+<th>HP</th>
 <th>WA</th>
 </tr>
-
 </thead>
 
 <tbody id="data"></tbody>
@@ -342,7 +271,11 @@ margin-top:-120px;
 
 </div>
 
-<a href="https://wa.me/6281266277447" class="whatsapp">💬</a>
+</section>
+
+<a href="https://wa.me/6281266277447" class="whatsapp" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
 
 <script>
 
@@ -352,74 +285,26 @@ let dataPeserta=[];
 
 function simpan(){
 
-var nama=document.getElementById("nama").value;
-var tempat=document.getElementById("tempat").value;
-var tanggal=document.getElementById("tanggal").value;
-var alamat=document.getElementById("alamat").value;
-var hp=document.getElementById("hp").value;
+var nama=nama.value;
+var tempat=tempat.value;
+var tanggal=tanggal.value;
+var alamat=alamat.value;
+var hp=hp.value;
 var program=document.getElementById("program").value;
-
-var fotoInput=document.getElementById("foto").files[0];
-
-var foto="";
-
-if(fotoInput){
-
-var reader=new FileReader();
-
-reader.onload=function(e){
-
-foto=e.target.result;
-
-kirimData();
-
-}
-
-reader.readAsDataURL(fotoInput);
-
-}else{
-
-kirimData();
-
-}
-
-function kirimData(){
 
 fetch(scriptURL,{
 method:"POST",
 body:JSON.stringify({
-nama:nama,
-tempat:tempat,
-tanggal:tanggal,
-alamat:alamat,
-hp:hp,
-program:program,
-foto:foto
+nama, tempat, tanggal, alamat, hp, program
 }),
 headers:{
 "Content-Type":"application/json"
 }
 })
 .then(res=>{
-
 alert("Pendaftaran Berhasil");
-
-kirimWA(nama,program);
-
 })
 .catch(err=>alert("Error"));
-
-}
-
-}
-
-function kirimWA(nama,program){
-
-var pesan="Halo Admin, ada pendaftaran baru:%0A%0A"+
-"Nama : "+nama+"%0A"+
-"Program : "+program;
-
-window.open("https://wa.me/6281266277447?text="+pesan);
 
 }
 
@@ -428,7 +313,6 @@ function login(){
 if(user.value=="admin" && pass.value=="12345"){
 
 adminPanel.style.display="block";
-
 loadData();
 
 }else{
@@ -447,84 +331,29 @@ fetch(scriptURL)
 
 dataPeserta=data;
 
-tampil(data);
-
-statistik(data);
-
-});
-
-}
-
-function tampil(data){
-
 var html="";
 
-data.forEach(function(d,i){
+data.forEach((d,i)=>{
 
 html+=`
-
 <tr>
-
 <td>${i+1}</td>
-<td>
-
-${d.foto ? `<img src="${d.foto}" width="40" style="border-radius:50%">` : ""}
-
-${d.nama}
-
-</td>
-
+<td>${d.nama}</td>
 <td>${d.program}</td>
 <td>${d.hp}</td>
-
 <td>
-
-<a href="https://wa.me/62${d.hp}" target="_blank">
+<a href="https://wa.me/62${d.hp}">
 <button class="btn">Chat</button>
 </a>
-
 </td>
-
 </tr>
-
 `;
 
 });
 
 document.getElementById("data").innerHTML=html;
 
-}
-
-function statistik(data){
-
-document.getElementById("total").innerHTML=data.length;
-
-var office=0;
-var google=0;
-
-data.forEach(function(d){
-
-if(d.program=="Microsoft Office") office++;
-if(d.program=="Google Workspace") google++;
-
 });
-
-document.getElementById("office").innerHTML=office;
-document.getElementById("google").innerHTML=google;
-
-}
-
-function cariData(){
-
-var keyword=cari.value.toLowerCase();
-
-var filter=dataPeserta.filter(function(d){
-
-return d.nama.toLowerCase().includes(keyword);
-
-});
-
-tampil(filter);
 
 }
 
@@ -535,10 +364,6 @@ window.open(scriptURL);
 }
 
 </script>
-
-<a href="https://wa.me/6281266277447" class="whatsapp" target="_blank">
-<i class="fab fa-whatsapp"></i>
-</a>
 
 </body>
 </html>
