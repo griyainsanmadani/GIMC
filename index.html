@@ -473,6 +473,8 @@ Pendaftaran Berhasil ✅
 
 <script>
 
+window.addEventListener("load", function(){
+
 document.getElementById("tanggal").addEventListener("input", function(e){
 
 let input = e.target.value.replace(/\D/g,'').substring(0,8);
@@ -488,6 +490,8 @@ e.target.value = `${hari}/${bulan}`;
 }else{
 e.target.value = input;
 }
+
+});
 
 });
 
