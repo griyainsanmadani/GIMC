@@ -383,22 +383,18 @@ var alamat=document.getElementById("alamat").value;
 var hp=document.getElementById("hp").value;
 var program=document.getElementById("program").value;
 
-fetch(scriptURL,{
-method:"POST",
-body:JSON.stringify({
-nama:nama,
-tempat:tempat,
-tanggal:tanggal,
-alamat:alamat,
-hp:hp,
-program:program
-}),
-headers:{
-"Content-Type":"application/json"
-}
-})
-.then(()=>tampilNotifikasi())
-.catch(()=>alert("Error koneksi"));
+var nomorAdmin="6281266277447";
+
+var pesan=
+"FORM PENDAFTARAN GIMC%0A%0A"+
+"Nama : "+nama+"%0A"+
+"Tempat Lahir : "+tempat+"%0A"+
+"Tanggal Lahir : "+tanggal+"%0A"+
+"Alamat : "+alamat+"%0A"+
+"No HP : "+hp+"%0A"+
+"Program : "+program;
+
+window.open("https://wa.me/"+nomorAdmin+"?text="+pesan,"_blank");
 
 }
 
