@@ -310,7 +310,7 @@ z-index:9999;
 <input type="text" id="alamat" placeholder="Alamat">
 <input type="text" id="hp" placeholder="Nomor HP">
 
-<select id="program">
+<select id="programKursus">
 <option>Microsoft Office</option>
 <option>Google Workspace</option>
 </select>
@@ -381,7 +381,7 @@ var tempat=document.getElementById("tempat").value;
 var tanggal=document.getElementById("tanggal").value;
 var alamat=document.getElementById("alamat").value;
 var hp=document.getElementById("hp").value;
-var program=document.getElementById("program").value;
+var program=document.getElementById("programKursus").value;
 
 var nomorAdmin="6281266277447";
 
@@ -392,7 +392,8 @@ var pesan=
 "Tanggal Lahir : "+tanggal+"%0A"+
 "Alamat : "+alamat+"%0A"+
 "No HP : "+hp+"%0A"+
-"Program : "+program;
+"Program : "+program+"%0A%0A"+
+"Mohon kirim foto setelah pesan ini";
 
 window.open("https://wa.me/"+nomorAdmin+"?text="+pesan,"_blank");
 
