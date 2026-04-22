@@ -3,47 +3,305 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>GRIYA INSAN MADANI COURSE</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-body{font-family:Arial;margin:0;background:#f4f6f9;}
-.header{display:flex;align-items:center;justify-content:center;gap:15px;background:linear-gradient(90deg,#0f8a4a,#d32f2f);color:#fff;padding:20px;}
-.logo{width:80px;}
-nav{background:#333;padding:15px;text-align:center;position:sticky;top:0;}
-nav a{color:#fff;margin:0 15px;text-decoration:none;font-weight:bold;}
-.container{max-width:1100px;margin:auto;padding:20px;}
-.card{background:#fff;padding:20px;margin:10px 0;border-radius:10px;}
-input,select{width:100%;padding:10px;margin:5px 0;}
-.btn{background:#0f8a4a;color:#fff;padding:12px;border:none;border-radius:8px;cursor:pointer;}
-table{width:100%;border-collapse:collapse;background:#fff;}
-th,td{border:1px solid #ddd;padding:10px;}
-.whatsapp{position:fixed;bottom:20px;right:20px;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:30px;}
+
+html{
+scroll-behavior:smooth;
+}
+
+#jadwal,
+#biaya,
+#daftar,
+#program,
+#admin{
+scroll-margin-top:120px;
+}
+
+body{
+font-family:Arial;
+margin:0;
+background:#f4f6f9;
+}
+
+.header{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:15px;
+background:linear-gradient(90deg,#0f8a4a,#d32f2f);
+color:white;
+padding:20px;
+}
+
+.logo{
+width:80px;
+}
+
+nav{
+background:#333;
+padding:15px;
+text-align:center;
+position:sticky;
+top:0;
+z-index:999;
+box-shadow:0 2px 5px rgba(0,0,0,0.2);
+}
+
+nav a{
+color:white;
+margin:0 15px;
+text-decoration:none;
+font-weight:bold;
+}
+
+nav a:hover{
+color:#ffd700;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+margin:10px 0;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+input, select{
+width:100%;
+padding:10px;
+margin:5px 0;
+border-radius:5px;
+border:1px solid #ccc;
+}
+
+.btn{
+background:#0f8a4a;
+color:white;
+padding:12px 20px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#d32f2f;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+}
+
+th,td{
+padding:10px;
+border:1px solid #ddd;
+text-align:left;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+text-decoration:none;
+animation:wa 2s infinite;
+}
+
+@keyframes wa{
+0%{transform:scale(1)}
+50%{transform:scale(1.1)}
+100%{transform:scale(1)}
+}
+
+/* Responsive HP */
+@media (max-width:768px){
+
+.header{
+flex-direction:column;
+text-align:center;
+}
+
+.logo{
+width:60px;
+}
+
+nav{
+padding:10px;
+}
+
+nav a{
+display:block;
+margin:10px 0;
+}
+
+.container{
+padding:15px;
+}
+
+.card{
+margin:10px 0;
+}
+
+input, select{
+font-size:16px;
+}
+
+.btn{
+width:100%;
+}
+
+table{
+font-size:12px;
+}
+
+.whatsapp{
+width:50px;
+height:50px;
+font-size:25px;
+}
+
+/* Animasi Form */
+#daftar{
+animation:fadeForm 1s ease;
+}
+
+@keyframes fadeForm{
+0%{
+opacity:0;
+transform:translateY(50px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+input, select{
+transition:0.3s;
+}
+
+input:focus, select:focus{
+border:2px solid #0f8a4a;
+box-shadow:0 0 5px rgba(15,138,74,0.5);
+outline:none;
+}
+}
 
 .notifikasi{
-position:fixed;top:20px;right:20px;background:#0f8a4a;color:#fff;padding:15px;border-radius:8px;display:none;
+position:fixed;
+top:20px;
+right:20px;
+background:#0f8a4a;
+color:white;
+padding:15px 25px;
+border-radius:8px;
+display:none;
+z-index:9999;
 }
+
 </style>
+
 </head>
 
 <body>
 
 <header class="header">
+
 <img src="logo.png" class="logo">
+
 <div>
 <h1>GRIYA INSAN MADANI COURSE</h1>
 <p>Pusat Kursus Komputer Profesional</p>
 </div>
+
 </header>
 
 <nav>
+<a href="#program">Program</a>
+<a href="#jadwal">Jadwal</a>
+<a href="#biaya">Biaya</a>
 <a href="#daftar">Daftar</a>
 <a href="#admin">Admin</a>
 </nav>
 
-<section id="daftar">
+<section id="program">
+
 <div class="container">
+
+<h2>Program Kursus</h2>
+
+<div class="card">
+<h3>Microsoft Office</h3>
+<ul>
+<li>Word</li>
+<li>Excel</li>
+<li>PowerPoint</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Google Workspace</h3>
+<ul>
+<li>Docs</li>
+<li>Sheets</li>
+<li>Slides</li>
+<li>Sites</li>
+<li>Drive</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Kelas</h3>
+<ul>
+<li>Reguler</li>
+<li>Privat</li>
+</ul>
+</div>
+
+<div class="card" id="jadwal">
+<h3>Jadwal</h3>
+<p>Reguler : Senin - Rabu</p>
+<p>Siang : 14.00 - 15.30 WIB</p>
+<p>Malam : 20.00 - 21.30 WIB</p>
+<p>Privat : Sesuai keinginan dan kesepakatan</p>
+</div>
+
+<<div class="card" id="biaya">
+<h3>Biaya</h3>
+<ul>
+<li>Reguler : Rp 500.000</li>
+<li>Privat : Rp 650.000</li>
+</ul>
+</div>
+
+</div>
+
+</section>
+
+<section id="daftar">
+
+<div class="container">
+
 <h2>Form Pendaftaran</h2>
 
 <input type="text" id="nama" placeholder="Nama Lengkap">
@@ -52,19 +310,24 @@ position:fixed;top:20px;right:20px;background:#0f8a4a;color:#fff;padding:15px;bo
 <input type="text" id="alamat" placeholder="Alamat">
 <input type="text" id="hp" placeholder="Nomor HP">
 
-<!-- FIX: ID diganti agar tidak bentrok -->
-<select id="programKursus">
+<select id="program">
 <option>Microsoft Office</option>
 <option>Google Workspace</option>
 </select>
 
+<label>Upload Foto</label>
+<input type="file" id="foto">
+
 <button class="btn" onclick="simpan()">Daftar</button>
 
 </div>
+
 </section>
 
 <section id="admin">
+
 <div class="container">
+
 <h2>Login Admin</h2>
 
 <input type="text" id="user" placeholder="Username">
@@ -73,26 +336,36 @@ position:fixed;top:20px;right:20px;background:#0f8a4a;color:#fff;padding:15px;bo
 <button class="btn" onclick="login()">Login</button>
 
 <div id="adminPanel" style="display:none">
+
 <h2>Dashboard</h2>
 
-<button class="btn" onclick="loadData()">Load Data</button>
+<button class="btn" onclick="downloadExcel()">Download Excel</button>
+
+<br><br>
 
 <table>
+
 <thead>
 <tr>
-<th>No</th><th>Nama</th><th>Program</th><th>HP</th><th>WA</th>
+<th>No</th>
+<th>Nama</th>
+<th>Program</th>
+<th>HP</th>
+<th>WA</th>
 </tr>
 </thead>
+
 <tbody id="data"></tbody>
+
 </table>
 
 </div>
+
 </div>
+
 </section>
 
-<div id="notifikasi" class="notifikasi">Pendaftaran Berhasil ✅</div>
-
-<a class="whatsapp" href="https://wa.me/6281266277447" target="_blank">
+<a href="https://wa.me/6281266277447" class="whatsapp" target="_blank">
 <i class="fab fa-whatsapp"></i>
 </a>
 
@@ -100,71 +373,101 @@ position:fixed;top:20px;right:20px;background:#0f8a4a;color:#fff;padding:15px;bo
 
 const scriptURL="https://script.google.com/macros/s/AKfycbw46ve5XYGOJKHMrUw-SRU_LdntPe10E8sPAvWaNcyuInJGhSomiCQYan42JqYpF3rGJg/exec";
 
-/* ================= DAFTAR ================= */
+let dataPeserta=[];
+
 function simpan(){
 
-const nama=document.getElementById("nama").value;
-const tempat=document.getElementById("tempat").value;
-const tanggal=document.getElementById("tanggal").value;
-const alamat=document.getElementById("alamat").value;
-const hp=document.getElementById("hp").value;
-const program=document.getElementById("programKursus").value;
+var nama=nama.value;
+var tempat=tempat.value;
+var tanggal=tanggal.value;
+var alamat=alamat.value;
+var hp=hp.value;
+var program=document.getElementById("program").value;
 
 fetch(scriptURL,{
 method:"POST",
-body:JSON.stringify({nama,tempat,tanggal,alamat,hp,program}),
-headers:{"Content-Type":"application/json"}
+body:JSON.stringify({
+nama, tempat, tanggal, alamat, hp, program
+}),
+headers:{
+"Content-Type":"application/json"
+}
 })
-.then(()=>notif())
-.catch(()=>alert("Gagal kirim data"));
+.then(res=>{
+tampilNotifikasi();
+})
+.catch(err=>alert("Error"));
 
 }
 
-/* ================= LOGIN ================= */
 function login(){
 
-const u=document.getElementById("user").value;
-const p=document.getElementById("pass").value;
+if(user.value=="admin" && pass.value=="12345"){
 
-if(u==="admin" && p==="12345"){
-document.getElementById("adminPanel").style.display="block";
+adminPanel.style.display="block";
 loadData();
+
 }else{
-alert("Login salah");
-}
+
+alert("Login Salah");
 
 }
 
-/* ================= LOAD DATA (AMAN ERROR) ================= */
+}
+
 function loadData(){
 
 fetch(scriptURL)
-.then(res=>res.text())   // FIX: jangan paksa JSON
-.then(()=>{
+.then(res=>res.json())
+.then(data=>{
 
-// sementara dummy supaya login tidak crash
-document.getElementById("data").innerHTML=`
+dataPeserta=data;
+
+var html="";
+
+data.forEach((d,i)=>{
+
+html+=`
 <tr>
-<td>1</td>
-<td>Contoh</td>
-<td>Office</td>
-<td>0812xxxx</td>
-<td><a href="#">Chat</a></td>
-</tr>`;
+<td>${i+1}</td>
+<td>${d.nama}</td>
+<td>${d.program}</td>
+<td>${d.hp}</td>
+<td>
+<a href="https://wa.me/62${d.hp}">
+<button class="btn">Chat</button>
+</a>
+</td>
+</tr>
+`;
 
-})
-.catch(err=>{
-console.log(err);
+});
+
+document.getElementById("data").innerHTML=html;
+
 });
 
 }
 
-/* ================= NOTIF ================= */
-function notif(){
-const n=document.getElementById("notifikasi");
-n.style.display="block";
-setTimeout(()=>n.style.display="none",3000);
+function downloadExcel(){
+
+window.open(scriptURL);
+
 }
+
+<script>
+
+function tampilNotifikasi(){
+document.getElementById("notifikasi").style.display="block";
+
+setTimeout(function(){
+document.getElementById("notifikasi").style.display="none";
+},3000);
+}
+
+<div id="notifikasi" class="notifikasi">
+Pendaftaran Berhasil ✅
+</div>
 
 </script>
 
