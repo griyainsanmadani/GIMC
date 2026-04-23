@@ -230,6 +230,57 @@ z-index:9999;
 
 </style>
 
+/* SOSIAL MEDIA FLOATING */
+.sosmed-container{
+position:fixed;
+right:20px;
+bottom:100px;
+z-index:9999;
+}
+
+.sosmed-toggle{
+background:#0f8a4a;
+color:white;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:25px;
+cursor:pointer;
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
+transition:0.3s;
+}
+
+.sosmed-menu{
+display:none;
+flex-direction:column;
+margin-bottom:10px;
+gap:10px;
+}
+
+.sosmed-menu a{
+width:50px;
+height:50px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-size:20px;
+text-decoration:none;
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
+}
+
+.fb{ background:#1877f2; }
+.ig{ background:#e4405f; }
+.yt{ background:#ff0000; }
+
+.show{
+display:flex;
+}
+
 </head>
 
 <body>
@@ -374,6 +425,28 @@ z-index:9999;
 
 </section>
 
+<div class="sosmed-container">
+
+<div id="menuSosmed" class="sosmed-menu">
+<a href="https://www.facebook.com/LKPGIM/" target="_blank" class="fb">
+<i class="fab fa-facebook-f"></i>
+</a>
+
+<a href="https://www.instagram.com/griyainsanmadanicourse/" target="_blank" class="ig">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="https://www.youtube.com/@pembelajarchannel/" target="_blank" class="yt">
+<i class="fab fa-youtube"></i>
+</a>
+</div>
+
+<div class="sosmed-toggle" onclick="toggleSosmed()">
+<i class="fas fa-share-alt"></i>
+</div>
+
+</div>
+
 <a href="https://wa.me/6281266277447" class="whatsapp" target="_blank">
 <i class="fab fa-whatsapp"></i>
 </a>
@@ -464,6 +537,10 @@ document.getElementById("notifikasi").style.display="block";
 setTimeout(function(){
 document.getElementById("notifikasi").style.display="none";
 },3000);
+}
+
+function toggleSosmed(){
+document.getElementById("menuSosmed").classList.toggle("show");
 }
 
 </script>
