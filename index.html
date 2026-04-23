@@ -316,16 +316,30 @@ margin-top:40px;
 
 <script>
 
-const scriptURL="https://script.google.com/macros/s/AKfycbzO0bNzBsrMUpcV4krhty_awua1RDMfcOWAyYC7IFE4CiCodqYYwFp3bI-C6YVZcT27/exec";
-
-/* DAFTAR */
+/* ================= DAFTAR ================= */
 function simpan(){
-let nama=document.getElementById("nama").value;
-let program=document.getElementById("programKursus").value;
 
-tampilNotifikasi();
+var nama=document.getElementById("nama").value;
+var tempat=document.getElementById("tempat").value;
+var tanggal=document.getElementById("tanggal").value;
+var alamat=document.getElementById("alamat").value;
+var hp=document.getElementById("hp").value;
+var program=document.getElementById("programKursus").value;
 
-window.open("https://wa.me/6281266277447?text=Nama:"+nama+" Program:"+program);
+var nomorAdmin="6281266277447";
+
+var pesan=
+"FORM PENDAFTARAN GIMC%0A%0A"+
+"Nama : "+nama+"%0A"+
+"Tempat Lahir : "+tempat+"%0A"+
+"Tanggal Lahir : "+tanggal+"%0A"+
+"Alamat : "+alamat+"%0A"+
+"No HP : "+hp+"%0A"+
+"Program : "+program+"%0A%0A"+
+"Mohon kirim Pas foto Latar Belakang merah setelah pesan ini";
+
+window.open("https://wa.me/"+nomorAdmin+"?text="+pesan,"_blank");
+
 }
 
 /* LOGIN */
