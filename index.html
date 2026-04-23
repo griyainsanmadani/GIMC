@@ -4,59 +4,189 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>GIMC COURSE</title>
+<title>GRIYA INSAN MADANI COURSE</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-body{font-family:Arial;margin:0;background:#f4f6f9;}
-.header{
-display:flex;align-items:center;justify-content:center;
-background:linear-gradient(90deg,#0f8a4a,#d32f2f);
-color:white;padding:20px;
-}
-.logo{width:70px;margin-right:10px;}
 
-nav{
-background:#333;text-align:center;padding:15px;
-position:sticky;top:0;
+html{scroll-behavior:smooth;}
+
+body{
+font-family:Arial;
+margin:0;
+background:#f4f6f9;
 }
-nav a{color:white;margin:0 10px;text-decoration:none;font-weight:bold;}
+
+/* HEADER */
+.header{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:15px;
+background:linear-gradient(90deg,#0f8a4a,#d32f2f);
+color:white;
+padding:20px;
+}
+
+.logo{width:80px;}
+
+/* NAV */
+nav{
+background:#333;
+padding:15px;
+text-align:center;
+position:sticky;
+top:0;
+z-index:999;
+}
+
+nav a{
+color:white;
+margin:0 10px;
+text-decoration:none;
+font-weight:bold;
+}
+
 nav a:hover{color:#ffd700;}
 
-.container{max-width:1000px;margin:auto;padding:20px;}
+/* SECTION OFFSET */
+#program,#jadwal,#biaya,#daftar,#admin{
+scroll-margin-top:120px;
+}
 
+/* CONTAINER */
+.container{
+max-width:1100px;
+margin:auto;
+padding:20px;
+}
+
+/* CARD */
 .card{
-background:white;padding:20px;margin:10px 0;
+background:white;
+padding:20px;
+margin:10px 0;
 border-radius:10px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
+box-shadow:0 0 10px rgba(0,0,0,0.1);
 }
 
+/* FORM */
 input,select{
-width:100%;padding:10px;margin:5px 0;
-border-radius:5px;border:1px solid #ccc;
+width:100%;
+padding:10px;
+margin:5px 0;
+border-radius:5px;
+border:1px solid #ccc;
 }
 
+/* BUTTON */
 .btn{
-background:#0f8a4a;color:white;padding:12px;
-border:none;border-radius:8px;cursor:pointer;
+background:#0f8a4a;
+color:white;
+padding:12px;
+border:none;
+border-radius:8px;
+cursor:pointer;
 }
+
 .btn:hover{background:#d32f2f;}
 
-table{width:100%;border-collapse:collapse;background:white;}
-th,td{padding:10px;border:1px solid #ddd;}
-
-.whatsapp{
-position:fixed;bottom:20px;right:20px;
-background:#25D366;color:white;width:60px;height:60px;
-border-radius:50%;display:flex;align-items:center;justify-content:center;
-font-size:30px;
+/* TABLE */
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
 }
 
+th,td{
+padding:10px;
+border:1px solid #ddd;
+}
+
+/* WA */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+animation:wa 2s infinite;
+}
+
+@keyframes wa{
+0%{transform:scale(1)}
+50%{transform:scale(1.1)}
+100%{transform:scale(1)}
+}
+
+/* SOSMED */
+.sosmed-container{
+position:fixed;
+right:20px;
+bottom:100px;
+}
+
+.sosmed-toggle{
+background:#0f8a4a;
+color:white;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+}
+
+.sosmed-menu a{
+display:block;
+width:50px;
+height:50px;
+margin-bottom:10px;
+border-radius:50%;
+color:white;
+text-align:center;
+line-height:50px;
+opacity:0;
+transform:translateY(20px);
+transition:0.3s;
+}
+
+.show a:nth-child(1){opacity:1; transform:translateY(0);}
+.show a:nth-child(2){opacity:1; transform:translateY(0); transition-delay:0.1s;}
+.show a:nth-child(3){opacity:1; transform:translateY(0); transition-delay:0.2s;}
+
+.fb{background:#1877f2;}
+.ig{background:#e4405f;}
+.yt{background:#ff0000;}
+
+/* NOTIF */
 .notif{
-position:fixed;top:20px;right:20px;
-background:#0f8a4a;color:white;padding:10px;
-display:none;border-radius:8px;
+position:fixed;
+top:20px;
+right:20px;
+background:#0f8a4a;
+color:white;
+padding:15px;
+border-radius:8px;
+display:none;
+}
+
+/* FOOTER */
+.footer{
+background:#333;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
 }
 
 </style>
@@ -64,15 +194,65 @@ display:none;border-radius:8px;
 
 <body>
 
+<!-- HEADER -->
 <header class="header">
 <img src="logo.png" class="logo">
+<div>
 <h2>GRIYA INSAN MADANI COURSE</h2>
+<p>Pusat Kursus Komputer Profesional</p>
+</div>
 </header>
 
+<!-- NAV -->
 <nav>
+<a href="#program">Program</a>
+<a href="#jadwal">Jadwal</a>
+<a href="#biaya">Biaya</a>
 <a href="#daftar">Daftar</a>
 <a href="#admin">Admin</a>
 </nav>
+
+<!-- PROGRAM -->
+<section id="program">
+<div class="container">
+
+<div class="card">
+<h3>Program</h3>
+<p>Microsoft Office (Word, Excel, PowerPoint)</p>
+<p>Google Workspace (Docs, Sheets, Slides, Sites, Drive)</p>
+</div>
+
+<div class="card">
+<h3>Kelas</h3>
+<p>Reguler & Privat</p>
+</div>
+
+</div>
+</section>
+
+<!-- JADWAL -->
+<section id="jadwal">
+<div class="container">
+<div class="card">
+<h3>Jadwal</h3>
+<p>Reguler: Senin - Rabu</p>
+<p>Siang: 14.00 - 15.30</p>
+<p>Malam: 20.00 - 21.30</p>
+<p>Privat: Fleksibel</p>
+</div>
+</div>
+</section>
+
+<!-- BIAYA -->
+<section id="biaya">
+<div class="container">
+<div class="card">
+<h3>Biaya</h3>
+<p>Reguler: Rp 500.000</p>
+<p>Privat: Rp 650.000</p>
+</div>
+</div>
+</section>
 
 <!-- FORM -->
 <section id="daftar">
@@ -87,7 +267,7 @@ display:none;border-radius:8px;
 <input id="alamat" placeholder="Alamat">
 <input id="hp" placeholder="No HP">
 
-<select id="program">
+<select id="programKursus">
 <option>Microsoft Office</option>
 <option>Google Workspace</option>
 </select>
@@ -112,15 +292,12 @@ display:none;border-radius:8px;
 
 <div id="panel" style="display:none">
 
-<br>
-<button class="btn" onclick="loadData()">Refresh Data</button>
-<button class="btn" onclick="download()">Download Excel</button>
+<button class="btn" onclick="loadData()">Refresh</button>
+<button class="btn" onclick="downloadExcel()">Download Excel</button>
 
 <table>
 <thead>
-<tr>
-<th>No</th><th>Nama</th><th>Program</th><th>HP</th>
-</tr>
+<tr><th>No</th><th>Nama</th><th>Program</th><th>HP</th></tr>
 </thead>
 <tbody id="data"></tbody>
 </table>
@@ -131,15 +308,27 @@ display:none;border-radius:8px;
 </div>
 </section>
 
+<!-- SOSMED -->
+<div class="sosmed-container">
+<div id="menuSosmed" class="sosmed-menu">
+<a href="https://www.facebook.com/LKPGIM/" class="fb"><i class="fab fa-facebook-f"></i></a>
+<a href="https://www.instagram.com/griyainsanmadanicourse/" class="ig"><i class="fab fa-instagram"></i></a>
+<a href="https://www.youtube.com/@pembelajarchannel/" class="yt"><i class="fab fa-youtube"></i></a>
+</div>
+<div class="sosmed-toggle" onclick="toggleSosmed()">☰</div>
+</div>
+
+<!-- WA -->
 <a href="https://wa.me/6281266277447" class="whatsapp">
 <i class="fab fa-whatsapp"></i>
 </a>
 
-<div id="notif" class="notif">Berhasil daftar ✅</div>
+<!-- NOTIF -->
+<div id="notif" class="notif">Pendaftaran Berhasil ✅</div>
 
 <script>
 
-const scriptURL="https://script.google.com/macros/s/AKfycbzO0bNzBsrMUpcV4krhty_awua1RDMfcOWAyYC7IFE4CiCodqYYwFp3bI-C6YVZcT27/exec";
+const scriptURL="ISI LINK GOOGLE SCRIPT ANDA";
 
 /* SIMPAN */
 function simpan(){
@@ -150,7 +339,7 @@ tempat:tempat.value,
 tanggal:tanggal.value,
 alamat:alamat.value,
 hp:hp.value,
-program:program.value
+program:programKursus.value
 };
 
 fetch(scriptURL,{
@@ -161,54 +350,56 @@ body:JSON.stringify(data)
 notif.style.display="block";
 setTimeout(()=>notif.style.display="none",3000);
 
-/* kirim WA */
-let pesan="Pendaftaran Baru:%0A"+data.nama;
-window.open("https://wa.me/6281266277447?text="+pesan);
+window.open("https://wa.me/6281266277447?text=Pendaftaran "+data.nama);
 
 })
 .catch(()=>alert("Error"));
+
 }
 
 /* LOGIN */
 function login(){
 if(user.value=="admin" && pass.value=="12345"){
 panel.style.display="block";
+loadData();
 }else{
-alert("Salah");
+alert("Login salah");
 }
 }
 
-/* LOAD DATA */
+/* LOAD */
 function loadData(){
-
 fetch(scriptURL)
 .then(res=>res.json())
 .then(res=>{
-
 let html="";
 res.forEach((d,i)=>{
-html+=`
-<tr>
+html+=`<tr>
 <td>${i+1}</td>
 <td>${d.nama}</td>
 <td>${d.program}</td>
 <td>${d.hp}</td>
-</tr>
-`;
+</tr>`;
 });
-
 data.innerHTML=html;
-
 });
-
 }
 
-/* DOWNLOAD */
-function download(){
-window.open(scriptURL);
+/* DOWNLOAD FIX */
+function downloadExcel(){
+window.open(scriptURL + "?export=excel");
+}
+
+/* SOSMED */
+function toggleSosmed(){
+menuSosmed.classList.toggle("show");
 }
 
 </script>
+
+<footer class="footer">
+<p>© 2026 GRIYA INSAN MADANI COURSE</p>
+</footer>
 
 </body>
 </html>
