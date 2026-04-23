@@ -8,6 +8,72 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+.sosmed-expand{
+position:fixed;
+left:20px;
+bottom:100px;
+z-index:999;
+}
+
+.main-btn{
+width:60px;
+height:60px;
+background:#0f8a4a;
+color:white;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:25px;
+cursor:pointer;
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
+transition:0.3s;
+}
+
+.main-btn:hover{
+transform:scale(1.1);
+}
+
+.sosmed-expand .item{
+position:absolute;
+left:0;
+width:50px;
+height:50px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-size:20px;
+text-decoration:none;
+opacity:0;
+pointer-events:none;
+transition:0.4s;
+}
+
+.fb{background:#1877F2;}
+.ig{background:#E4405F;}
+.yt{background:#FF0000;}
+
+/* Saat aktif */
+.sosmed-expand.active .fb{
+bottom:70px;
+opacity:1;
+pointer-events:auto;
+}
+
+.sosmed-expand.active .ig{
+bottom:130px;
+opacity:1;
+pointer-events:auto;
+}
+
+.sosmed-expand.active .yt{
+bottom:190px;
+opacity:1;
+pointer-events:auto;
+}
+
 <style>
 
 html{
@@ -228,8 +294,6 @@ display:none;
 z-index:9999;
 }
 
-<h3 style="text-align:center;">Ikuti Kami</h3>
-
 .sosmed{
 text-align:center;
 margin:30px 0;
@@ -257,6 +321,26 @@ transform:scale(1.2);
 </style>
 
 </head>
+
+<div class="sosmed-expand">
+
+<div class="main-btn" onclick="toggleSosmed()">
+<i class="fas fa-share-alt"></i>
+</div>
+
+<a href="https://www.facebook.com/LKPGIM/" target="_blank" class="item fb">
+<i class="fab fa-facebook-f"></i>
+</a>
+
+<a href="https://www.instagram.com/griyainsanmadanicourse/" target="_blank" class="item ig">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="https://www.youtube.com/@pembelajarchannel/" target="_blank" class="item yt">
+<i class="fab fa-youtube"></i>
+</a>
+
+</div>
 
 <body>
 
@@ -504,6 +588,10 @@ document.getElementById("notifikasi").style.display="block";
 setTimeout(function(){
 document.getElementById("notifikasi").style.display="none";
 },3000);
+}
+
+function toggleSosmed(){
+document.querySelector(".sosmed-expand").classList.toggle("active");
 }
 
 </script>
