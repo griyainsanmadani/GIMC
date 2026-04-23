@@ -14,6 +14,15 @@ html{
 scroll-behavior:smooth;
 }
 
+.footer{
+background:#333;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+font-size:14px;
+}
+
 #jadwal,
 #biaya,
 #daftar,
@@ -310,7 +319,7 @@ z-index:9999;
 <input type="text" id="alamat" placeholder="Alamat">
 <input type="text" id="hp" placeholder="Nomor HP">
 
-<select id="program">
+<select id="programKursus">
 <option>Microsoft Office</option>
 <option>Google Workspace</option>
 </select>
@@ -371,57 +380,55 @@ z-index:9999;
 
 <script>
 
-const scriptURL="https://script.google.com/macros/s/AKfycbw46ve5XYGOJKHMrUw-SRU_LdntPe10E8sPAvWaNcyuInJGhSomiCQYan42JqYpF3rGJg/exec";
+const scriptURL="https://script.google.com/macros/s/AKfycbzO0bNzBsrMUpcV4krhty_awua1RDMfcOWAyYC7IFE4CiCodqYYwFp3bI-C6YVZcT27/exec";
 
-let dataPeserta=[];
-
+/* ================= DAFTAR ================= */
 function simpan(){
 
-var nama=nama.value;
-var tempat=tempat.value;
-var tanggal=tanggal.value;
-var alamat=alamat.value;
-var hp=hp.value;
-var program=document.getElementById("program").value;
+var nama=document.getElementById("nama").value;
+var tempat=document.getElementById("tempat").value;
+var tanggal=document.getElementById("tanggal").value;
+var alamat=document.getElementById("alamat").value;
+var hp=document.getElementById("hp").value;
+var program=document.getElementById("programKursus").value;
 
-fetch(scriptURL,{
-method:"POST",
-body:JSON.stringify({
-nama, tempat, tanggal, alamat, hp, program
-}),
-headers:{
-"Content-Type":"application/json"
+var nomorAdmin="6281266277447";
+
+var pesan=
+"FORM PENDAFTARAN GIMC%0A%0A"+
+"Nama : "+nama+"%0A"+
+"Tempat Lahir : "+tempat+"%0A"+
+"Tanggal Lahir : "+tanggal+"%0A"+
+"Alamat : "+alamat+"%0A"+
+"No HP : "+hp+"%0A"+
+"Program : "+program+"%0A%0A"+
+"Mohon kirim foto setelah pesan ini";
+
+window.open("https://wa.me/"+nomorAdmin+"?text="+pesan,"_blank");
+
 }
-})
-.then(res=>{
-tampilNotifikasi();
-})
-.catch(err=>alert("Error"));
 
-}
-
+/* ================= LOGIN ================= */
 function login(){
 
-if(user.value=="admin" && pass.value=="12345"){
+var user=document.getElementById("user").value;
+var pass=document.getElementById("pass").value;
 
-adminPanel.style.display="block";
+if(user=="admin" && pass=="12345"){
+document.getElementById("adminPanel").style.display="block";
 loadData();
-
 }else{
-
 alert("Login Salah");
-
 }
 
 }
 
+/* ================= LOAD DATA ================= */
 function loadData(){
 
 fetch(scriptURL)
 .then(res=>res.json())
 .then(data=>{
-
-dataPeserta=data;
 
 var html="";
 
@@ -445,18 +452,12 @@ html+=`
 
 document.getElementById("data").innerHTML=html;
 
-});
+})
+.catch(()=>console.log("Gagal load data"));
 
 }
 
-function downloadExcel(){
-
-window.open(scriptURL);
-
-}
-
-<script>
-
+/* ================= NOTIFIKASI ================= */
 function tampilNotifikasi(){
 document.getElementById("notifikasi").style.display="block";
 
@@ -465,11 +466,14 @@ document.getElementById("notifikasi").style.display="none";
 },3000);
 }
 
-<div id="notifikasi" class="notifikasi">
-Pendaftaran Berhasil ✅
-</div>
-
 </script>
+
+<footer class="footer">
+<h3>GRIYA INSAN MADANI COURSE</h3>
+<p>Terimakasih sudah mempercayai kami sebagai mitra sukses Anda!</p>
+<p>Copyright © 2026 All Rights Reserved</p>
+<p> © 2026 GRIYA INSAN MADANI COURSE</p>
+</footer>
 
 </body>
 </html>
