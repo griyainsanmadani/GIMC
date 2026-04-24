@@ -32,7 +32,70 @@ padding:20px;
 }
 
 .logo{
-width:80px;
+width:90px;
+border-radius:50%;
+padding:8px;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(8px);
+box-shadow:
+0 0 15px rgba(255,255,255,0.4),
+0 0 30px rgba(255,215,0,0.3),
+0 10px 25px rgba(0,0,0,0.25);
+animation:
+floatLogo 4s ease-in-out infinite,
+glowLogo 2.5s ease-in-out infinite,
+rotateLogo 10s linear infinite;
+transition:0.4s;
+}
+
+.logo:hover{
+transform:scale(1.08) rotate(5deg);
+box-shadow:
+0 0 20px rgba(255,255,255,0.6),
+0 0 40px rgba(255,215,0,0.5),
+0 15px 30px rgba(0,0,0,0.35);
+}
+
+/* Efek melayang */
+@keyframes floatLogo{
+0%{
+transform:translateY(0px);
+}
+50%{
+transform:translateY(-10px);
+}
+100%{
+transform:translateY(0px);
+}
+}
+
+/* Efek glow premium */
+@keyframes glowLogo{
+0%{
+box-shadow:
+0 0 10px rgba(255,255,255,0.3),
+0 0 20px rgba(255,215,0,0.2);
+}
+50%{
+box-shadow:
+0 0 20px rgba(255,255,255,0.6),
+0 0 40px rgba(255,215,0,0.5);
+}
+100%{
+box-shadow:
+0 0 10px rgba(255,255,255,0.3),
+0 0 20px rgba(255,215,0,0.2);
+}
+}
+
+/* Putar sangat halus */
+@keyframes rotateLogo{
+from{
+rotate:0deg;
+}
+to{
+rotate:360deg;
+}
 }
 
 /* NAV */
