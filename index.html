@@ -433,41 +433,33 @@ margin-top:40px;
 const scriptURL = "https://script.google.com/macros/s/AKfycbzO0bNzBsrMUpcV4krhty_awua1RDMfcOWAyYC7IFE4CiCodqYYwFp3bI-C6YVZcT27/exec";
 
 /* ================= DAFTAR ================= */
+/* SIMPAN */
 function simpan(){
 
-var nama = document.getElementById("nama").value;
-var tempat = document.getElementById("tempat").value;
-var tanggal = document.getElementById("tanggal").value;
-var alamat = document.getElementById("alamat").value;
-var hp = document.getElementById("hp").value;
-var program = document.getElementById("programKursus").value;
-
-var nomorAdmin = "6281266277447";
-
-/* ================= SIMPAN KE GOOGLE SHEETS ================= */
+let data={
+nama:nama.value,
+tempat:tempat.value,
+tanggal:tanggal.value,
+alamat:alamat.value,
+hp:hp.value,
+program:program.value
+};
 
 fetch(scriptURL,{
 method:"POST",
-body:JSON.stringify({
-nama:nama,
-tempat:tempat,
-tanggal:tanggal,
-alamat:alamat,
-hp:hp,
-program:program
-}),
-headers:{
-"Content-Type":"application/json"
+body:JSON.stringify(data)
+})
+.then(()=>{
+notif.style.display="block";
+setTimeout(()=>notif.style.display="none",3000);
+
+/* kirim WA */
+let pesan="Pendaftaran Baru:%0A"+data.nama;
+window.open("https://wa.me/6281266277447?text="+pesan);
+
+})
+.catch(()=>alert("Error"));
 }
-})
-.then(response => response.text())
-.then(data => {
-console.log("Berhasil simpan ke Sheets:", data);
-tampilNotifikasi();
-})
-.catch(error => {
-console.log("Error:", error);
-});
 
 /* ================= KIRIM KE WHATSAPP ================= */
 
