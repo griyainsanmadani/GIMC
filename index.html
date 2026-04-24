@@ -77,30 +77,82 @@ border-radius:10px;
 box-shadow:0 0 10px rgba(0,0,0,0.1);
 }
 
-/* FORM */
-input, select{
-width:100%;
-padding:10px;
-margin:5px 0;
-border-radius:5px;
-border:1px solid #ccc;
+<!-- GANTI CSS FORM YANG LAMA (input, select, .btn) DENGAN YANG INI SAJA -->
+
+/* ================= FORM PENDAFTARAN PRO ================= */
+
+#daftar .container{
+max-width:700px;
+margin:auto;
+padding:30px;
 }
 
-/* BUTTON */
-.btn{
-background:#0f8a4a;
+#daftar h2{
+text-align:center;
+font-size:32px;
+color:#0f8a4a;
+margin-bottom:25px;
+font-weight:bold;
+}
+
+#daftar{
+padding:40px 20px;
+}
+
+#daftar input,
+#daftar select{
+width:100%;
+padding:14px 16px;
+margin:10px 0;
+border:1px solid #dcdcdc;
+border-radius:12px;
+font-size:15px;
+background:#ffffff;
+box-sizing:border-box;
+transition:0.3s;
+outline:none;
+box-shadow:0 2px 8px rgba(0,0,0,0.04);
+}
+
+#daftar input:focus,
+#daftar select:focus{
+border-color:#0f8a4a;
+box-shadow:0 0 0 4px rgba(15,138,74,0.08);
+transform:translateY(-1px);
+}
+
+#daftar select{
+cursor:pointer;
+}
+
+/* tombol daftar lebih profesional */
+#daftar .btn{
+margin-top:15px;
+background:linear-gradient(90deg,#0f8a4a,#16a34a);
 color:white;
-padding:12px;
+padding:15px;
 border:none;
-border-radius:8px;
+border-radius:14px;
+font-size:16px;
+font-weight:bold;
 cursor:pointer;
 width:100%;
+transition:0.3s;
+box-shadow:0 8px 20px rgba(15,138,74,0.18);
 }
 
-.btn:hover{
-background:#d32f2f;
+#daftar .btn:hover{
+transform:translateY(-2px);
+background:linear-gradient(90deg,#d32f2f,#b71c1c);
+box-shadow:0 12px 25px rgba(211,47,47,0.20);
 }
 
+/* efek card form */
+#daftar .container{
+background:white;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
 /* TABLE */
 table{
 width:100%;
