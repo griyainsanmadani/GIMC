@@ -137,13 +137,17 @@ animation:wa 2s infinite;
 100%{transform:scale(1)}
 }
 
+/* GANTI BAGIAN CSS SOSMED YANG LAMA DENGAN INI SAJA */
+
 /* SOSMED EXPAND */
 .sosmed-container{
 position:fixed;
 right:20px;
 bottom:100px;
+z-index:999;
 }
 
+/* tombol utama */
 .sosmed-toggle{
 background:#0f8a4a;
 color:white;
@@ -154,29 +158,87 @@ display:flex;
 align-items:center;
 justify-content:center;
 cursor:pointer;
+font-size:24px;
+animation:sosmedBounce 2s infinite;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* animasi seperti tombol WA */
+@keyframes sosmedBounce{
+0%{
+transform:scale(1);
+}
+50%{
+transform:scale(1.1);
+}
+100%{
+transform:scale(1);
+}
+}
+
+/* menu icon sosmed */
+.sosmed-menu{
+display:flex;
+flex-direction:column;
+align-items:center;
+margin-bottom:10px;
 }
 
 .sosmed-menu a{
-display:block;
+display:flex;
+align-items:center;
+justify-content:center;
 width:50px;
 height:50px;
 margin-bottom:10px;
 border-radius:50%;
 color:white;
-text-align:center;
-line-height:50px;
+text-decoration:none;
+font-size:22px;
+
+/* awal disembunyikan */
 opacity:0;
-transform:translateY(20px);
-transition:0.3s;
+visibility:hidden;
+transform:translateY(20px) scale(0.8);
+
+transition:all 0.3s ease;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+
+/* icon juga bergerak */
+animation:sosmedBounce 2s infinite;
 }
 
-.show a:nth-child(1){opacity:1; transform:translateY(0);}
-.show a:nth-child(2){opacity:1; transform:translateY(0); transition-delay:0.1s;}
-.show a:nth-child(3){opacity:1; transform:translateY(0); transition-delay:0.2s;}
+/* saat dibuka */
+.sosmed-menu.show a{
+opacity:1;
+visibility:visible;
+transform:translateY(0) scale(1);
+}
 
-.fb{background:#1877f2;}
-.ig{background:#e4405f;}
-.yt{background:#ff0000;}
+/* delay muncul satu-satu */
+.sosmed-menu.show a:nth-child(1){
+transition-delay:0.1s;
+}
+
+.sosmed-menu.show a:nth-child(2){
+transition-delay:0.2s;
+}
+
+.sosmed-menu.show a:nth-child(3){
+transition-delay:0.3s;
+}
+
+.fb{
+background:#1877f2;
+}
+
+.ig{
+background:#e4405f;
+}
+
+.yt{
+background:#ff0000;
+}
 
 /* NOTIFIKASI */
 .notifikasi{
